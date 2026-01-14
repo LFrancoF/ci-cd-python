@@ -22,7 +22,7 @@ def test_suma(client):
     assert json.loads(r.data)['resultado'] == 7
 
 def test_saludo(client):
-    r = client.get('/saludo/Rox')
+    r = client.get('/saludo/Rox').get_json()
     assert '¡Hola Rox!' in r.get_data(as_text=True)
 
 def test_multiplicar(): assert multiplicar(2, 3) == 6
